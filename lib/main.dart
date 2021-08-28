@@ -1,3 +1,4 @@
+import 'package:coriander/next_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -40,37 +41,32 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  String text = '次へ';
+
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Icon(Icons.add),
-          Icon(Icons.share),
-        ],
         title: Text('Flutter Practice'),
       ),
-      body: Container(
-        height: 300,
-        width: 200,
-        color: Colors.orange,
-        child: Padding(
-          padding: EdgeInsets.all(30),
-
-        child: Column(
-          children: <Widget>[
-            Text('いいね'),
-            Text('リツイート'),
-          ],
+      body: Center(
+        child: ElevatedButton(
+          child: Text(text),
+          onPressed: () async {
+           // ここを押したら反応するコードを書く
+            final result = await Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => NextPage('Muluuuuu')
+              ),
+            );
+            text = result;
+            print(result);
+          }
         ),
+
       ),
-    ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
