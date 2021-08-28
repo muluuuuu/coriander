@@ -52,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Flutter Practice'),
       ),
       body: Container(
-        margin: 20, 20,
         height: 300,
         width: 200,
         color: Colors.red,
